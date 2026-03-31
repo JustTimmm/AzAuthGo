@@ -1,5 +1,9 @@
 package azuriom
 
+import "errors"
+
+var Err2FARequired = errors.New("azuriom: 2FA code required")
+
 type AuthResponse struct {
 	ID            int    `json:"id"`
 	Username      string `json:"username"`
