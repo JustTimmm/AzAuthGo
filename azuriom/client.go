@@ -21,13 +21,13 @@ func NewClient(url string) *Client {
 	}
 }
 
-func (client *Client) Authenticate(username, password string) (*AuthResponse, error) {
-	return client.AuthenticateWith2FA(username, password, "")
+func (client *Client) Authenticate(email, password string) (*AuthResponse, error) {
+	return client.AuthenticateWith2FA(email, password, "")
 }
 
-func (client *Client) AuthenticateWith2FA(username, password, code string) (*AuthResponse, error) {
+func (client *Client) AuthenticateWith2FA(email, password, code string) (*AuthResponse, error) {
 	payload := map[string]string{
-		"email":    username,
+		"email":    email,
 		"password": password,
 	}
 	if code != "" {
